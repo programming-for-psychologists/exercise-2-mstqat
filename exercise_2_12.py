@@ -3,9 +3,6 @@ only appears rarely (in fact, it will appear 1/# of people in the class,
 on average). Change the code so that the name you entered appears on 1/4 of 
 the trials."""
 
-#Do something new. Compare response times to first and last names, 
-#measure effect of font face, etc.
-
 import time
 import sys
 import random
@@ -39,12 +36,17 @@ if not userVar["Name"] in firstNames:
     errorDlg.show()
 
 #display names; get user input; give feedback
-for i in range(5):
+for i in range(20):
     
     fixCross.draw()
     win.flip()
     core.wait(.5)
-    nameShown = random.choice(firstNames + lastNames) # choose from mixed names
+    nameShown = ""
+    oneInFourRand = random.randint(0,3)
+    if oneInFourRand == 0:
+        nameShown = userVar["Name"]
+    else:
+        nameShown = random.choice(firstNames + lastNames) # choose from mixed names
     nameStim.setText(nameShown)
     nameStim.draw()
     win.flip()
@@ -107,9 +109,6 @@ for i in range(5):
     trialScores.append(trialScore)
     trialNames.append(nameShown)
     trialLastName.append(firstOrLast)
-    
-    trialLen = "Trial_Num" + str(trialNum) + " " + str(trialTime) + " seconds"
-    print trialLen
     
     fixCross.draw()
     win.flip()
