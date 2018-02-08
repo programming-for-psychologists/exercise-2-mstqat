@@ -1,0 +1,2 @@
+Pop up a box that accepts a first name, and check to make sure that the name
+exists. If it doesn't, pop-up a 'Name does not exist'error box
