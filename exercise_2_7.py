@@ -16,15 +16,16 @@ nameStim = visual.TextStim(win,text="", height=40, color="white",pos=[0,0])
 corrRes = visual.TextStim(win,text="O",height=40, color="green",pos=[0,0])
 wrongRes = visual.TextStim(win,text="X",height=40, color="red",pos=[0,0])
 
+#check user name
 userVar = {"Name":"Enter your first name"}
 dlg = gui.DlgFromDict(userVar)
 
-
-#check user name
 if not userVar["Name"] in firstNames:
     errorDlg = gui.Dlg()
     errorDlg.addText("Name does not exist")
     errorDlg.show()
+    core.wait(.5)
+    dlg.show()
 
 #display names; get user input; give feedback
 while True:
